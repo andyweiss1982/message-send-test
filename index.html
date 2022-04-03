@@ -16,8 +16,14 @@
 </head>
 <body>
   <h1>Inside the iframe</h1>
-  <h2>window.parent message sent at <span id="parent-sent"></span></h2>
-  <h2>window.top message sent at <span id="top-sent"></span></h2>
+  <h2>
+    window.parent message sent at:<br>
+    <span id="parent-sent">Nothing sent yet</span>
+  </h2>
+  <h2>
+    window.top message sent at:<br>
+    <span id="top-sent">Nothing sent yet</span>
+  </h2>
   <script>
     setInterval(() => {
       const sentAt = new Date().toISOString()
