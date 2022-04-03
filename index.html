@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      font-family: monospace;
+      background-color: red;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Inside the iframe</h1>
+  <h2>window.parent message sent at <span id="parent-sent"></span></h2>
+  <h2>window.top message sent at <span id="top-sent"></span></h2>
+  <script>
+    setInterval(() => {
+      const parentSent = new Date().toISOString()
+      document.getElementById("parent-sent").innerText = parentSent
+      window.parent.postMessage(parentSent, '*')
+    }, 5000)
+
+    setInterval(() => {
+      const topSent = new Date().toISOString()
+      document.getElementById("top-sent").innerText = topSent
+      window.top.postMessage(topSent, '*')
+    }, 5000)
+  </script>
+</body>
+</html>
