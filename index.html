@@ -20,15 +20,15 @@
   <h2>window.top message sent at <span id="top-sent"></span></h2>
   <script>
     setInterval(() => {
-      const parentSent = new Date().toISOString()
-      document.getElementById("parent-sent").innerText = parentSent
-      window.parent.postMessage(parentSent, '*')
+      const sentAt = new Date().toISOString()
+      document.getElementById("parent-sent").innerText = sentAt
+      window.parent.postMessage({ sentTo: "parent", sentAt }, '*')
     }, 5000)
 
     setInterval(() => {
-      const topSent = new Date().toISOString()
-      document.getElementById("top-sent").innerText = topSent
-      window.top.postMessage(topSent, '*')
+      const sentAt = new Date().toISOString()
+      document.getElementById("top-sent").innerText = sentAt
+      window.top.postMessage({ sentTo: "top", sentAt }, '*')
     }, 5000)
   </script>
 </body>
